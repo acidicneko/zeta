@@ -1,0 +1,15 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ayu/code/zeta'
+ 
+echo [CC] src/utils.o
+g++ -std=c++17 -I src/include/ -c src/utils.cpp -o src/utils.o
+echo [CC] src/main.o
+g++ -std=c++17 -I src/include/ -c src/main.cpp -o src/main.o
+ 
+echo [CC] src/zeta.o
+g++ -std=c++17 -I src/include/ -c src/zeta.cpp -o src/zeta.o
+ 
+echo [LD] build/zeta
+g++ src/utils.o src/main.o src/zeta.o -o build/zeta
+make: Leaving directory '/home/ayu/code/zeta'
+ 
