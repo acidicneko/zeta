@@ -4,7 +4,7 @@ OFILES = $(CFILES:.cpp=.o)
 
 TARGET = build/zeta
 
-.PHONY = clean test all
+.PHONY = clean all install uninstall
 
 $(TARGET): $(OFILES)
 	@echo [LD] $(TARGET)
@@ -19,3 +19,9 @@ clean:
 	@rm $(OFILES) $(TARGET)
 
 all: clean $(TARGET)
+
+install:
+	sudo cp $(TARGET) /usr/local/bin/
+
+uninstall:
+	sudo rm /usr/local/bin/zeta
