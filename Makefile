@@ -21,8 +21,11 @@ clean:
 all: clean $(TARGET)
 
 install:
-	sudo cp $(TARGET) /usr/local/bin/
-	cp -r assets/templates/ $(HOME)/zeta/.config
+	cp $(TARGET) /usr/local/bin/
+	
+assets:
+	mkdir -p $(HOME)/.config/zeta
+	cp -r assets/templates/ $(HOME)/.config/zeta
 
 uninstall:
 	sudo rm /usr/local/bin/zeta
