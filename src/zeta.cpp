@@ -7,14 +7,14 @@
 
 void zeta::init(std::string name, std::string language) {
     if (fileExist(".zeta/config.ini")){
-        std::cout << "Zeta is already initialized." << std::endl;
+        std::cout << "Zeta has already been initialised!" << std::endl;
         return;
     } else if(fileExist("Makefile")){
         std::cout << "Makefile already exists." << std::endl
-                    << "Are you sure this folder is empty?" << std::endl;
+                    << "Are you sure if this folder is empty?" << std::endl;
         exit(EXIT_FAILURE);
     }
-    std::cout << "Initializing Zeta..." << std::endl;
+    std::cout << "Initializing Zeta...\n" << std::endl;
     std::cout << "Target: " << name << std::endl;
     std::cout << "Language: " << language << std::endl;
     Execute("mkdir .zeta");
@@ -31,7 +31,7 @@ void zeta::init(std::string name, std::string language) {
     Execute("mkdir build");
     std::cout << "Writing Makefile..." << std::endl;
     zeta::writeMakefile(name);
-    std::cout << "Zeta is initialized." << std::endl;
+    std::cout << "\nZeta has been initialized." << std::endl;
 }
 
 void zeta::writeMakefile(std::string target){
@@ -42,7 +42,8 @@ void zeta::writeMakefile(std::string target){
     std::string home = GetEnv("HOME");
     std::string templatePath = home + "/.config/zeta/templates/" + ini["general"]["language"] + "-Makefile";
     if(!fileExist(templatePath)){
-        std::cout << "Could not find template file for " << ini["general"]["language"] << std::endl;
+        std::cout << "Could not find template file for " << ini["general"]["language"] 
+                    << "\nInitialisation failed. Exiting..." << std::endl;
         Execute("rm -rf .zeta");
         Execute("rm -rf build");
         Execute("rm -rf src");
