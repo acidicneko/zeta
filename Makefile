@@ -4,7 +4,7 @@ OFILES = $(CFILES:.cpp=.o)
 
 TARGET = build/zeta
 
-.PHONY = clean all install uninstall
+.PHONY = clean all install assets uninstall
 
 $(TARGET): $(OFILES)
 	@echo [LD] $(TARGET)
