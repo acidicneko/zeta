@@ -7,4 +7,6 @@ namespace zeta {
     void writeMakefile(std::string target);
     void build();
     void clean();
+    void stat();
+    void checkInit();
 }

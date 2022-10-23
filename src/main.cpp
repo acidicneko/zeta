@@ -25,6 +25,8 @@ int main(int argc, char** argv){
         zeta::build();
     } else if (!strcmp(argv[1], "clean")){
         zeta::clean();
+    } else if (!strcmp(argv[1], "stat")){
+        zeta::stat();
     } else {
         std::cout << "Usage: zeta [--help] [--version] [init [name] [language]] [build] [clean]" << std::endl;
     }

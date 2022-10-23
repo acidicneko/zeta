@@ -60,11 +60,37 @@ void zeta::writeMakefile(std::string target){
 }
 
 void zeta::build(){
+    zeta::checkInit();
     std::cout << "Building..." << std::endl;
-    Execute("make");
+    mINI::INIFile file(".zeta/config.ini");
+    mINI::INIStructure ini;
+    file.read(ini);
+    Execute(ini["general"]["build"]);
 }
 
 void zeta::clean(){
+    zeta::checkInit();
     std::cout << "Cleaning..." << std::endl;
-    Execute("make clean");
+    mINI::INIFile file(".zeta/config.ini");
+    mINI::INIStructure ini;
+    file.read(ini);
+    Execute(ini["general"]["clean"]);
+}
+
+void zeta::stat(){
+    zeta::checkInit();
+    mINI::INIFile file(".zeta/config.ini");
+    mINI::INIStructure ini;
+    file.read(ini);
+    std::cout << "Target Name: " << ini["general"]["target"] << "\n"
+              << "Language: " << ini["general"]["language"] << "\n"
+              << "Build: " << ini["general"]["build"] << "\n"
+              << "Clean: " << ini["general"]["clean"] << std::endl;
+}
+
+void zeta::checkInit(){
+    if(!fileExist(".zeta/config.ini")){
+        std::cout << "Zeta hasn't been initialised for current directory." << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }
