@@ -23,7 +23,7 @@ int main(int argc, char** argv){
         zeta::init(argv[2], argv[3], false);
     } else if (!strcmp(argv[1], "force-init")){
         if(argc < 4){
-            std::cout << "Usage: zeta init <name> <language>" << std::endl;
+            std::cout << "Usage: zeta force-init <name> <language>" << std::endl;
             exit(EXIT_FAILURE);
         }
         zeta::init(argv[2], argv[3], true);
