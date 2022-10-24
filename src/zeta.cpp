@@ -5,11 +5,11 @@
 #include "utils.h"
 #include "ini.h"
 
-void zeta::init(std::string name, std::string language) {
+void zeta::init(std::string name, std::string language, bool force) {
     if (fileExist(".zeta/config.ini")){
         std::cout << "Zeta has already been initialised!" << std::endl;
         return;
-    } else if(fileExist("Makefile")){
+    } else if(fileExist("Makefile") && force == false){
         std::cout << "Makefile already exists." << std::endl
                     << "Are you sure if this folder is empty?" << std::endl;
         exit(EXIT_FAILURE);
@@ -27,11 +27,13 @@ void zeta::init(std::string name, std::string language) {
     ini["general"]["target"] = name;
     file.generate(ini);
 
-    Execute("mkdir -p src/include");
-    Execute("mkdir build");
-    std::cout << "Writing Makefile..." << std::endl;
-    zeta::writeMakefile(name);
-    std::cout << "\nZeta has been initialized." << std::endl;
+    if(!force){
+        Execute("mkdir -p src/include");
+        Execute("mkdir build");
+        std::cout << "Writing Makefile..." << std::endl;
+        zeta::writeMakefile(name);
+        std::cout << "\nZeta has been initialized." << std::endl;
+    }
 }
 
 void zeta::writeMakefile(std::string target){
