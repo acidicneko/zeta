@@ -1,8 +1,8 @@
 echo Starting Zeta installer...
-sleep 3
+sleep 2
 
 read -p "Install or Update Zeta[i/u]: " choice
-if [[ "$choice" = "i" ]] ; then 
+if [ "$choice" = "i" ] ; then 
     echo "Installing Zeta..."
     git clone https://github.com/acidicneko/zeta.git
     make -C zeta/
@@ -10,8 +10,8 @@ if [[ "$choice" = "i" ]] ; then
     mkdir -p ~/.config/zeta
     cp -r zeta/assets/templates ~/.config/zeta/
     rm -rf zeta
-    echo "Zeta has been installed."
-elif [[ "$choice" = "u" ]] ; then
+    echo "Zeta has been installed"
+elif [ "$choice" = "u" ] ; then
     echo "Updating Zeta..."
     git clone https://github.com/acidicneko/zeta.git
     make -C zeta/
