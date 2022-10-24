@@ -10,5 +10,5 @@ It is still very usable and can be used in general development.
 
 One line installation
 ```
-curl -L https://bit.ly/3SqWUmX | bash
+curl -L https://bit.ly/3CTBfOk > install.sh && bash install.sh && rm install.sh
 ```
