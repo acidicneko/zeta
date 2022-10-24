@@ -15,6 +15,7 @@ elif [ "$choice" = "u" ] ; then
     echo "Updating Zeta..."
     git clone https://github.com/acidicneko/zeta.git
     make -C zeta/
+    sudo rm /usr/bin/zeta
     sudo cp zeta/build/zeta /usr/bin/zeta
     echo "Zeta has been updated."
     rm -rf zeta
