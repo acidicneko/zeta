@@ -17,4 +17,7 @@ elif [ "$choice" = "u" ] ; then
     make -C zeta/
     sudo cp zeta/build/zeta /usr/bin/zeta
     echo "Zeta has been updated."
+    rm -rf zeta
+else
+    echo "Wrong option: " "$choice"
 fi
