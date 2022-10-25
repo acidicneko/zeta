@@ -9,6 +9,7 @@ void help(){
               << "init [target] [language]: initialise zeta for this directory\n"
               << "build: build givn project\n"
               << "clean: clean target and object files\n"
+              << "all: clean and build project\n"
               << "stat: print workspace information" << std::endl;
 }
 
@@ -21,7 +22,7 @@ int main(int argc, char** argv){
         help();
         return 0;
     } else if (!strcmp(argv[1], "--version")){
-        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.1.1\n" 
+        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.2.1\n" 
                   << "Distributed under GNU GPLv3\n"
                   << "Copyright Ayush Yadav(acidicneko) 2022"<< std::endl;
         return 0;
@@ -43,6 +44,10 @@ int main(int argc, char** argv){
         zeta::clean();
     } else if (!strcmp(argv[1], "stat")){
         zeta::stat();
+    } else if (!strcmp(argv[1], "all")){
+        std::cout << "Cleaning and Building..." << std::endl;
+        zeta::clean();
+        zeta::build();
     } else {
         std::cout << "unknown command: " << argv[1] << std::endl;
         help();
