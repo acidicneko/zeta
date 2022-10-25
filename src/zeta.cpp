@@ -7,11 +7,12 @@
 
 void zeta::init(std::string name, std::string language, bool force) {
     if (fileExist(".zeta/config.ini")){
-        std::cout << "Zeta has already been initialised!" << std::endl;
+        std::cout << "Zeta has already been initialized!" << std::endl;
         return;
     } else if(fileExist("Makefile") && force == false){
         std::cout << "Makefile already exists." << std::endl
                     << "Are you sure if this folder is empty?" << std::endl;
+        std::cout << "\nZeta has been initialized forcefully." << std::endl;
         exit(EXIT_FAILURE);
     }
     std::cout << "Initializing Zeta...\n" << std::endl;
@@ -92,7 +93,7 @@ void zeta::stat(){
 
 void zeta::checkInit(){
     if(!fileExist(".zeta/config.ini")){
-        std::cout << "Zeta hasn't been initialised for current directory." << std::endl;
+        std::cout << "Zeta hasn't been initialized for current directory." << std::endl;
         exit(EXIT_FAILURE);
     }
 }

@@ -2,16 +2,26 @@
 #include <cstring>
 #include "zeta.h"
 
+void help(){
+    std::cout << "Usage: zeta\n" 
+              << "--help: prints this menu\n"
+              << "--version: prints version info\n"
+              << "init [target] [language]: initialise zeta for this directory\n"
+              << "build: build givn project\n"
+              << "clean: clean target and object files\n"
+              << "stat: print workspace information" << std::endl;
+}
+
 int main(int argc, char** argv){
     if(argc < 2){
         std::cout << "Usage: zeta <command>" << std::endl;
         exit(EXIT_FAILURE);
     }
     if(!strcmp(argv[1], "--help")){
-        std::cout << "Usage: zeta [--help] [--version] [init [language]] [build] [clean]" << std::endl;
+        help();
         return 0;
     } else if (!strcmp(argv[1], "--version")){
-        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.1.0\n" 
+        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.1.1\n" 
                   << "Distributed under GNU GPLv3\n"
                   << "Copyright Ayush Yadav(acidicneko) 2022"<< std::endl;
         return 0;
@@ -34,7 +44,8 @@ int main(int argc, char** argv){
     } else if (!strcmp(argv[1], "stat")){
         zeta::stat();
     } else {
-        std::cout << "Usage: zeta [--help] [--version] [init [name] [language]] [build] [clean]" << std::endl;
+        std::cout << "unknown command: " << argv[1] << std::endl;
+        help();
     }
     return 0;
 }
