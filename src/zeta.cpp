@@ -27,7 +27,7 @@ void zeta::init(std::string name, std::string language, bool force) {
     ini["general"]["clean"] = "make clean";
     ini["general"]["target"] = name;
     file.generate(ini);
-
+    zeta::initGit();
     if(!force){
         Execute("mkdir -p src/include");
         Execute("mkdir build");
@@ -89,6 +89,21 @@ void zeta::stat(){
               << "Language: " << ini["general"]["language"] << "\n"
               << "Build: " << ini["general"]["build"] << "\n"
               << "Clean: " << ini["general"]["clean"] << std::endl;
+}
+
+void zeta::initGit(){
+    if (folderExist(".git/")){
+        std::cout << "Git has already been initialised." << std::endl;
+        return;
+    }
+    std::string choice;
+    std::cout << "Initialize git?[y/n]: ";
+    std::cin >> choice;
+    if(choice == "y"){
+        Execute("git init");
+    } else {
+        return;
+    }
 }
 
 void zeta::checkInit(){

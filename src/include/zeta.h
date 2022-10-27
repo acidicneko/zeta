@@ -8,5 +8,6 @@ namespace zeta {
     void build();
     void clean();
     void stat();
+    void initGit();
     void checkInit();
 }
