@@ -2,10 +2,10 @@
 
 LOC="$HOME"/.config/zeta/
 
-CURRENT_HASH=$(curl -H "Accept: application/vnd.github+json" 
-        https://api.github.com/repos/acidicneko/zeta/commits/main 
-        | grep sha 
-        | awk 'NR==1{print $2}' 
+CURRENT_HASH=$(curl -H "Accept: application/vnd.github+json" \
+        https://api.github.com/repos/acidicneko/zeta/commits/main \
+        | grep sha \
+        | awk 'NR==1{print $2}' \
         | sed 's/[",]//g')
 
 source "$LOC"/last_commit
