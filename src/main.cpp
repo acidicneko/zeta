@@ -1,5 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include <cstring>
+#include "utils.h"
 #include "zeta.h"
 
 void help(){
@@ -23,8 +25,19 @@ int main(int argc, char** argv){
         help();
         return 0;
     } else if (!strcmp(argv[1], "--version")){
-        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.3.0\n" 
-                  << "Distributed under GNU GPLv3\n"
+        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.4.0\n";
+        std::string last_commit_loc = GetEnv("HOME") + "/.config/zeta/last_commit";
+        if(!fileExist(last_commit_loc)){
+            std::cout << "Failed to retrieve commit ID." << std::endl;
+        } else {
+            std::ifstream last_commit(last_commit_loc);
+            std::string content;
+            std::getline(last_commit, content);
+            last_commit.close();
+            replace(content, "LAST_HASH=", "");
+            std::cout << "Commit ID: " << content << std::endl;
+        }
+        std::cout << "Distributed under GNU GPLv3\n"
                   << "Copyright Ayush Yadav(acidicneko) 2022"<< std::endl;
         return 0;
     } else if (!strcmp(argv[1], "init")){
