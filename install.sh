@@ -9,6 +9,7 @@ if [ "$choice" = "i" ] ; then
     sudo cp zeta/build/zeta /usr/bin/zeta
     mkdir -p ~/.config/zeta
     cp -r zeta/assets ~/.config/zeta/
+    chmod +x ~/.config/zeta/update.sh
     rm -rf zeta
     echo "Zeta has been installed"
     CURRENT_HASH=$(curl -H "Accept: application/vnd.github+json" \
@@ -24,6 +25,7 @@ elif [ "$choice" = "u" ] ; then
     sudo rm /usr/bin/zeta
     sudo cp zeta/build/zeta /usr/bin/zeta
     cp zeta/assets/update.sh ~/.config/zeta/update.sh
+    chmod +x ~/.config/zeta/update.sh
     echo "Zeta has been updated."
     rm -rf zeta
     CURRENT_HASH=$(curl -H "Accept: application/vnd.github+json" \
