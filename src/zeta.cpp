@@ -118,7 +118,7 @@ void zeta::update(){
     if(!fileExist(updateScript)){
         std::cout << "Update script not found.\n"
                   << "Script Location: " << updateScript
-                  << "\nGrab the script from https://https://github.com/acidicneko/zeta/blob/main/assets/update.sh"
+                  << "\nGrab the script from https://github.com/acidicneko/zeta/blob/main/assets/update.sh"
                   << std::endl; 
         exit(EXIT_FAILURE);
     }
