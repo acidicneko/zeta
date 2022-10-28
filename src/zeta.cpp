@@ -33,6 +33,8 @@ void zeta::init(std::string name, std::string language, bool force) {
         std::cout << "Writing Makefile..." << std::endl;
         zeta::writeMakefile(name);
         std::cout << "\nZeta has been initialized." << std::endl;
+    } else {
+        std::cout << "\nZeta has been initialized forcefully." << std::endl;
     }
 }
 
@@ -92,7 +94,7 @@ void zeta::stat(){
 
 void zeta::initGit(){
     if (folderExist(".git/")){
-        std::cout << "Git has already been initialised." << std::endl;
+        std::cout << "Git has been already initialized." << std::endl;
         return;
     }
     std::string choice;
