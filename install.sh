@@ -23,6 +23,7 @@ elif [ "$choice" = "u" ] ; then
     make -C zeta/
     sudo rm /usr/bin/zeta
     sudo cp zeta/build/zeta /usr/bin/zeta
+    cp zeta/assets/update.sh ~/.config/zeta/update.sh
     echo "Zeta has been updated."
     rm -rf zeta
     CURRENT_HASH=$(curl -H "Accept: application/vnd.github+json" \
