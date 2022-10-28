@@ -12,7 +12,6 @@ void zeta::init(std::string name, std::string language, bool force) {
     } else if(fileExist("Makefile") && force == false){
         std::cout << "Makefile already exists." << std::endl
                     << "Are you sure if this folder is empty?" << std::endl;
-        std::cout << "\nZeta has been initialized forcefully." << std::endl;
         exit(EXIT_FAILURE);
     }
     std::cout << "Initializing Zeta...\n" << std::endl;
