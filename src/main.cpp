@@ -10,6 +10,7 @@ void help(){
               << "build: build givn project\n"
               << "clean: clean target and object files\n"
               << "all: clean and build project\n"
+              << "update: get the latest release of Zeta\n"
               << "stat: print workspace information" << std::endl;
 }
 
@@ -48,6 +49,8 @@ int main(int argc, char** argv){
         std::cout << "Cleaning and Building..." << std::endl;
         zeta::clean();
         zeta::build();
+    } else if(!strcmp(argv[1], "update")){
+        zeta::update();
     } else {
         std::cout << "unknown command: " << argv[1] << std::endl;
         help();
