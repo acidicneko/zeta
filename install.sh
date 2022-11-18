@@ -6,7 +6,7 @@ git clone https://github.com/acidicneko/zeta.git
 make -C zeta/
 sudo cp zeta/build/zeta /usr/bin/zeta
 mkdir -p ~/.config/zeta
-cp -r zeta/assets ~/.config/zeta/
+cp -r zeta/assets/* ~/.config/zeta/
 chmod +x ~/.config/zeta/update.sh
 rm -rf zeta
 CURRENT_HASH=$(curl -H "Accept: application/vnd.github+json" \
