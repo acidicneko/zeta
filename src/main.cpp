@@ -12,7 +12,6 @@ void help(){
               << "build: build givn project\n"
               << "clean: clean target and object files\n"
               << "all: clean and build project\n"
-              << "update: get the latest release of Zeta\n"
               << "stat: print workspace information" << std::endl;
 }
 
@@ -25,18 +24,7 @@ int main(int argc, char** argv){
         help();
         return 0;
     } else if (!strcmp(argv[1], "--version")){
-        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.4.0\n";
-        std::string last_commit_loc = GetEnv("HOME") + "/.config/zeta/last_commit";
-        if(!fileExist(last_commit_loc)){
-            std::cout << "Failed to retrieve commit ID." << std::endl;
-        } else {
-            std::ifstream last_commit(last_commit_loc);
-            std::string content;
-            std::getline(last_commit, content);
-            last_commit.close();
-            replace(content, "LAST_HASH=", "");
-            std::cout << "Commit ID: " << content << std::endl;
-        }
+        std::cout << "Zeta C/C++ Helper Tool\nVersion: 1.4.1\n";
         std::cout << "Distributed under GNU GPLv3\n"
                   << "Copyright Ayush Yadav(acidicneko) 2022"<< std::endl;
         return 0;
@@ -62,8 +50,6 @@ int main(int argc, char** argv){
         std::cout << "Cleaning and Building..." << std::endl;
         zeta::clean();
         zeta::build();
-    } else if(!strcmp(argv[1], "update")){
-        zeta::update();
     } else {
         std::cout << "unknown command: " << argv[1] << std::endl;
         help();

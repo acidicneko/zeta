@@ -113,15 +113,3 @@ void zeta::checkInit(){
         exit(EXIT_FAILURE);
     }
 }
-
-void zeta::update(){
-    std::string updateScript = GetEnv("HOME") + "/.config/zeta/update.sh";
-    if(!fileExist(updateScript)){
-        std::cout << "Update script not found.\n"
-                  << "Script Location: " << updateScript
-                  << "\nGrab the script from https://github.com/acidicneko/zeta/blob/main/assets/update.sh"
-                  << std::endl; 
-        exit(EXIT_FAILURE);
-    }
-    Execute(updateScript);
-}

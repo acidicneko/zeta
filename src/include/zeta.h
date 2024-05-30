@@ -10,5 +10,4 @@ namespace zeta {
     void stat();
     void initGit();
     void checkInit();
-    void update();
 }
