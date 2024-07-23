@@ -12,3 +12,13 @@ One line installation
 ```
 curl -L https://bit.ly/3CTBfOk > install.sh && bash install.sh && rm install.sh
 ```
+Zeta is also [GitMan](https://github/acidicneko/gitman) compatible.
+Append the following block to `packages` array in `~/.config/gitman/packages.conf` to install Zeta
+```json
+    {
+      "name": "zeta",
+      "repo": "acidicneko/zeta",
+      "branch": "main",
+      "type": "commit"
+    }
+```
