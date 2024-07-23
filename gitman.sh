@@ -3,7 +3,6 @@ install() {
 	mv build/zeta "$GITMAN_BIN"/zeta
 	mkdir -p ~/.config/zeta
 	cp -r assets/* ~/.config/zeta/
-	chmod +x ~/.config/zeta/update.sh
 }
 
 uninstall() {
