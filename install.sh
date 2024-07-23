@@ -7,6 +7,5 @@ make -C zeta/
 sudo cp zeta/build/zeta /usr/bin/zeta
 mkdir -p ~/.config/zeta
 cp -r zeta/assets/* ~/.config/zeta/
-chmod +x ~/.config/zeta/update.sh
 rm -rf zeta
 echo "Zeta has been installed"
