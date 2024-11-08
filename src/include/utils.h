@@ -8,4 +8,4 @@ std::string GetEnv(std::string variable);
 bool fileExist(std::string filename);
 bool folderExist(std::string folderFromFile);
 std::string getFolderName(std::string fullPath);
-std::string getfile(std::ifstream& is);
+std::string getfile(std::ifstream &is);
